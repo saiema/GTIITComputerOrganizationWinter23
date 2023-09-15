@@ -1,3 +1,4 @@
+.PHONY: clean
 clean:
 	find . -name '*.i' -delete
 	find . -name '*.s' -delete
