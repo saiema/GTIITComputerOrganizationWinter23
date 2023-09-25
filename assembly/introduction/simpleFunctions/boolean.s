@@ -33,10 +33,10 @@ and:
     mov %rsp, %rbp
     xor %rax, %rax
     cmp $0, %rdi
-    setz %r10b
+    setz %dil
     cmp $0, %rsi
-    setz %r11b
-    or %r10b, %r11b
+    setz %sil
+    or %sil, %dil
     setz %al
     pop %rbp
     ret

@@ -1,13 +1,15 @@
 #include <stdio.h>
 
-extern unsigned int isEven(int value);
-extern unsigned int isOdd(int value);
+typedef unsigned char boolean;
+
+extern boolean isEven(int value);
+extern boolean isOdd(int value);
 extern int max(int a, int b);
 
-extern unsigned int not(unsigned int a);
-extern unsigned int and(unsigned int a, unsigned int b);
-extern unsigned int or(unsigned int a, unsigned int b);
-extern unsigned int xor(unsigned int a, unsigned int b);
+extern boolean not(boolean a);
+extern boolean and(boolean a, boolean b);
+extern boolean or(boolean a, boolean b);
+extern boolean xor(boolean a, boolean b);
 
 extern int write(const char * string, int length);
 extern int strLength(const char * string);
@@ -25,11 +27,11 @@ void notTruthTable(void);
 
 void fullAdderTable(void);
 
-unsigned int evenOddCheck(void);
-unsigned int booleanFunctionsCheck(void);
+boolean evenOddCheck(void);
+boolean booleanFunctionsCheck(void);
 
-unsigned int fullAdder(unsigned int a, unsigned int b, unsigned int carry, unsigned int * carryOut);
-void printFullAdderResults_line(unsigned int a, unsigned int b, unsigned int carryIn, unsigned int carryOut, unsigned int res);
+boolean fullAdder(boolean a, boolean b, boolean carry, boolean * carryOut);
+void printFullAdderResults_line(boolean a, boolean b, boolean carryIn, boolean carryOut, boolean res);
 
 void main(void) {
     const char * helloWorld = "Hello world\n";
@@ -48,7 +50,7 @@ void main(void) {
 
     fullAdderTable();
 
-    const char * oddAndEvenSeemsCorrect = "Both functions even and odd appear to work correct!\n";
+    const char * oddAndEvenSeemsCorrect = "Both functions even and odd appear to work correctly!\n";
     const char * oddAndEvenAreIncorrect = "Either the even function, odd function, or both, are incorrect!\n";
 
     if (evenOddCheck()) {
@@ -81,8 +83,8 @@ void andTruthTable(void) {
     const char * andTruthTableHeaderSeparator = "===============\n";
     write(andTruthTableHeader, strLength(andTruthTableHeader));
     write(andTruthTableHeaderSeparator, strLength(andTruthTableHeaderSeparator));
-    for (unsigned int a = 0; a < 2; a++) {
-        for (unsigned int b = 0; b < 2; b++) {
+    for (boolean a = 0; a < 2; a++) {
+        for (boolean b = 0; b < 2; b++) {
             char aAndBChar = digitToChar(and(a, b));
             char aChar = digitToChar(a);
             char bChar = digitToChar(b);
@@ -101,8 +103,8 @@ void xorTruthTable(void) {
     const char * xorTruthTableHeaderSeparator = "===============\n";
     write(xorTruthTableHeader, strLength(xorTruthTableHeader));
     write(xorTruthTableHeaderSeparator, strLength(xorTruthTableHeaderSeparator));
-    for (unsigned int a = 0; a < 2; a++) {
-        for (unsigned int b = 0; b < 2; b++) {
+    for (boolean a = 0; a < 2; a++) {
+        for (boolean b = 0; b < 2; b++) {
             char aXorBChar = digitToChar(xor(a, b));
             char aChar = digitToChar(a);
             char bChar = digitToChar(b);
@@ -121,8 +123,8 @@ void orTruthTable(void) {
     const char * orTruthTableHeaderSeparator = "===============\n";
     write(orTruthTableHeader, strLength(orTruthTableHeader));
     write(orTruthTableHeaderSeparator, strLength(orTruthTableHeaderSeparator));
-    for (unsigned int a = 0; a < 2; a++) {
-        for (unsigned int b = 0; b < 2; b++) {
+    for (boolean a = 0; a < 2; a++) {
+        for (boolean b = 0; b < 2; b++) {
             char aOrBChar = digitToChar(or(a, b));
             char aChar = digitToChar(a);
             char bChar = digitToChar(b);
@@ -141,7 +143,7 @@ void notTruthTable(void) {
     const char * notTruthTableHeaderSeparator = "=========\n";
     write(notTruthTableHeader, strLength(notTruthTableHeader));
     write(notTruthTableHeaderSeparator, strLength(notTruthTableHeaderSeparator));
-    for (unsigned int a = 0; a < 2; a++) {
+    for (boolean a = 0; a < 2; a++) {
         char notAChar = digitToChar(not(a));
         char aChar = digitToChar(a);
         write(&aChar, 1);
@@ -152,7 +154,7 @@ void notTruthTable(void) {
 }
 
 
-unsigned int evenOddCheck(void) {
+boolean evenOddCheck(void) {
     #define EVEN_VALUE 42
     #define ODD_VALUE 47
 
@@ -178,37 +180,42 @@ unsigned int evenOddCheck(void) {
     write(&oddIsOddChar, 1);
     write("\n", 1);
     
-    unsigned int evenIsEven = isEven(EVEN_VALUE);
-    unsigned int evenIsNotOdd = not(isOdd(EVEN_VALUE));
-    unsigned int oddIsOdd = isOdd(ODD_VALUE);
-    unsigned int oddIsNotEven = not(isEven(ODD_VALUE));
+    boolean evenIsEven = isEven(EVEN_VALUE);
+    boolean evenIsNotOdd = not(isOdd(EVEN_VALUE));
+    boolean oddIsOdd = isOdd(ODD_VALUE);
+    boolean oddIsNotEven = not(isEven(ODD_VALUE));
 
     return and(and(evenIsEven, oddIsOdd), and(evenIsNotOdd, oddIsNotEven));
 }
 
-unsigned int booleanFunctionsCheck(void) {
+boolean booleanFunctionsCheck(void) {
     #define TRUE 1
     #define FALSE 0
-    unsigned int notTrueIsFalse = ! not(TRUE);
-    unsigned int notFalseIsTrue = not(FALSE);
-    unsigned int a = TRUE;
-    unsigned int b = FALSE;
+    boolean notTrueIsFalse = ! not(TRUE);
+    boolean notFalseIsTrue = not(FALSE);
+    boolean a = TRUE;
+    boolean b = FALSE;
     
-    unsigned int andNeutral = and((and(TRUE, a) == a), (and(TRUE, b) == b));
-    unsigned int andNeutral_reverse = and((and(a, TRUE) == a), (and(b, TRUE) == b));
+    boolean andNeutral = and((and(TRUE, a) == a), (and(TRUE, b) == b));
+    boolean andNeutral_reverse = and((and(a, TRUE) == a), (and(b, TRUE) == b));
     
-    unsigned int andFalse = and (! and(FALSE, a), ! and(FALSE, b));
-    unsigned int andFalse_reverse = and (! and(a, FALSE), ! and(b, FALSE));
+    boolean andFalse = and (! and(FALSE, a), ! and(FALSE, b));
+    boolean andFalse_reverse = and (! and(a, FALSE), ! and(b, FALSE));
 
-    unsigned int values[2] = {TRUE, FALSE};
-    unsigned deMorgan = TRUE;
+    boolean values[2] = {TRUE, FALSE};
+    boolean deMorgan = TRUE;
+    // and A B eq not (not A or not B)
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 2; j++) {
-            deMorgan = (deMorgan, (and(values[i], values[j])) == or(not(values[i]), values[j]));
+            boolean a = values[i];
+            boolean b = values[j];
+            boolean aANDb = and(a, b);
+            boolean naORnb = or(not(a), not(b));
+            deMorgan = and(deMorgan, aANDb == not(naORnb));
         }
     }
-    unsigned int andNeutralCorrect = and(andNeutral, andNeutral_reverse);
-    unsigned int andFalseCorrect = and(andFalse, andFalse_reverse);
+    boolean andNeutralCorrect = and(andNeutral, andNeutral_reverse);
+    boolean andFalseCorrect = and(andFalse, andFalse_reverse);
     return and(deMorgan, and(andNeutralCorrect, andFalseCorrect));
 }
 
@@ -217,30 +224,31 @@ void fullAdderTable(void) {
     const char * fullAdderResults_separator = "================================\n";
     write(fullAdderResults_header, strLength(fullAdderResults_header));
     write(fullAdderResults_separator, strLength(fullAdderResults_separator));
-    for (unsigned int a = 0; a < 2; a++) {
-        for (unsigned int b = 0; b < 2; b++) {
-            for (unsigned int carryIn = 0; carryIn < 2; carryIn++) {
-                int carryOut;
-                int res = fullAdder(a, b, carryIn, &carryOut);
+    for (boolean a = 0; a < 2; a++) {
+        for (boolean b = 0; b < 2; b++) {
+            for (boolean carryIn = 0; carryIn < 2; carryIn++) {
+                boolean carryOut;
+                boolean res = fullAdder(a, b, carryIn, &carryOut);
                 printFullAdderResults_line(a, b, carryIn, carryOut, res);
             }
         }
     }
+    write("\n", 1);
 }
 
-unsigned int fullAdder(unsigned int a, unsigned int b, unsigned int carry, unsigned int * carryOut) {
-    unsigned int xor_a_b = xor(a, b);
-    unsigned int sum = xor(carry, xor_a_b);
+boolean fullAdder(boolean a, boolean b, boolean carry, boolean * carryOut) {
+    boolean xor_a_b = xor(a, b);
+    boolean sum = xor(carry, xor_a_b);
 
-    unsigned int and_cin_xor_a_b = and(carry, xor_a_b);
-    unsigned int and_a_b = and(a, b);
-    unsigned int cout = or(and_a_b, and_cin_xor_a_b);
+    boolean and_cin_xor_a_b = and(carry, xor_a_b);
+    boolean and_a_b = and(a, b);
+    boolean cout = or(and_a_b, and_cin_xor_a_b);
 
     *carryOut = cout;
     return sum;
 }
 
-void printFullAdderResults_line(unsigned int a, unsigned int b, unsigned int carryIn, unsigned int carryOut, unsigned int res) {
+void printFullAdderResults_line(boolean a, boolean b, boolean carryIn, boolean carryOut, boolean res) {
     char aChar = digitToChar(a);
     char bChar = digitToChar(b);
     char carryInChar = digitToChar(carryIn);

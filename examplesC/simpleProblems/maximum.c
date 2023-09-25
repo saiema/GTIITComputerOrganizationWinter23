@@ -4,9 +4,9 @@
 #define SIZE 42
 #define MAX_VALUE 100
 
-int max(int a, int b);
-int maximum(const int size, int values[size]);
-void printArray(const int size, int values[size]);
+int max(const int a, const int b);
+int maximum(const int size, const int values[size]);
+void printArray(const int size, const int values[size]);
 
 int main(int argc, char ** argv) {
     if (argc != 2) {
@@ -25,7 +25,7 @@ int main(int argc, char ** argv) {
     return 0;
 }
 
-int max(int a, int b) {
+int max(const int a, const int b) {
     int maxValue;
     if (a > b) {
         maxValue = a;
@@ -35,7 +35,7 @@ int max(int a, int b) {
     return maxValue;
 }
 
-int maximum(const int size, int values[size]) {
+int maximum(const int size, const int values[size]) {
     int maxValue = -1;
     for (int i = 0; i < size; i++) {
         maxValue = max(maxValue, values[i]);
@@ -43,10 +43,10 @@ int maximum(const int size, int values[size]) {
     return maxValue;
 }
 
-void printArray(const int size, int values[size]) {
+void printArray(const int size, const int values[size]) {
     printf("[");
     for (int i = 0; i < size; i++) {
-        printf("%d", i);
+        printf("%d",values[i]);
         if (i + 1 < size) {
             printf(", ");
         }
