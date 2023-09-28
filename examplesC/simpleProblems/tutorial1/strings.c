@@ -46,11 +46,11 @@ int lastIndexOf(const char * string, const char e) {
     return resIdx;
 }
 
-#define LOWER_CASE_MIN 65
-#define LOWER_CASE_MAX 90
+#define LOWER_CASE_MIN 97
+#define LOWER_CASE_MAX 122
 
-#define UPPER_CASE_MIN 97
-#define UPPER_CASE_MAX 122
+#define UPPER_CASE_MIN 65
+#define UPPER_CASE_MAX 90
 
 #define CASE_DIFF 32
 
@@ -64,7 +64,7 @@ char * toLowerCase(const char * string) {
     for (int i = 0; i < strLength; i++) {
         char currChar = string[i];
         if ((currChar >= UPPER_CASE_MIN) && (currChar <= UPPER_CASE_MAX)) {
-            currChar = currChar - CASE_DIFF;
+            currChar = currChar + CASE_DIFF;
         }
         lCaseString[i] = currChar;
     }
@@ -81,7 +81,7 @@ char * toUpperCase(const char * string) {
     for (int i = 0; i < strLength; i++) {
         char currChar = string[i];
         if ((currChar >= LOWER_CASE_MIN) && (currChar <= LOWER_CASE_MAX)) {
-            currChar = currChar + CASE_DIFF;
+            currChar = currChar - CASE_DIFF;
         }
         uCaseString[i] = currChar;
     }
