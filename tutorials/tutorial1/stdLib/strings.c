@@ -22,7 +22,7 @@ boolean equals(const char * string1, const char * string2) {
     return string2[i] == 0;
 }
 
-int indexOf(const char * string, const char e) {
+int index_of(const char * string, const char e) {
     int idx = 0;
     boolean found = FALSE;
     while (string[idx] != 0) {
@@ -34,7 +34,7 @@ int indexOf(const char * string, const char e) {
     return found?idx:-1;
 }
 
-int lastIndexOf(const char * string, const char e) {
+int last_index_of(const char * string, const char e) {
     int idx = 0;
     int resIdx = -1;
     while(string[idx] != 0) {
@@ -54,7 +54,7 @@ int lastIndexOf(const char * string, const char e) {
 
 #define CASE_DIFF 32
 
-char * toLowerCase(const char * string) {
+char * to_lower_case(const char * string) {
     int strLength = length(string);
     char * lCaseString = (char *) malloc(strLength + 1);
     if (lCaseString == 0) {
@@ -71,7 +71,7 @@ char * toLowerCase(const char * string) {
     return lCaseString;
 }
 
-char * toUpperCase(const char * string) {
+char * to_upper_case(const char * string) {
     unsigned int strLength = length(string);
     char * uCaseString = (char *) malloc(strLength + 1);
     if (uCaseString == 0) {

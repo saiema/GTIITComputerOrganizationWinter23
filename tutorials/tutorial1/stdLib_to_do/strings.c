@@ -9,11 +9,11 @@ boolean equals(const char * string1, const char * string2) {
     //TODO
 }
 
-int indexOf(const char * string, const char e) {
+int index_of(const char * string, const char e) {
     //TODO
 }
 
-int lastIndexOf(const char * string, const char e) {
+int last_index_of(const char * string, const char e) {
     //TODO
 }
 
@@ -25,11 +25,11 @@ int lastIndexOf(const char * string, const char e) {
 
 #define CASE_DIFF 32
 
-char * toLowerCase(const char * string) {
+char * to_lower_case(const char * string) {
     //TODO
 }
 
-char * toUpperCase(const char * string) {
+char * to_upper_case(const char * string) {
     //TODO
 }
 

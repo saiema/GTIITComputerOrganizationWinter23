@@ -17,7 +17,7 @@ int maximum(const int size, int values[size]) {
     return maxValue;
 }
 
-boolean isEven(const int value) {
+boolean is_even(const int value) {
     if (value & 1) {
         return FALSE;
     } else {
@@ -25,7 +25,7 @@ boolean isEven(const int value) {
     }
 }
 
-boolean isOdd(const int value) {
+boolean is_odd(const int value) {
     if (value & 1) {
         return TRUE;
     } else {
@@ -33,7 +33,7 @@ boolean isOdd(const int value) {
     }
 }
 
-boolean isPrime(const unsigned int value) {
+boolean is_prime(const unsigned int value) {
     int divisors = 1;
     for (int divisor = 2; divisor <= value; divisor++) {
         if (value % divisor == 0) {

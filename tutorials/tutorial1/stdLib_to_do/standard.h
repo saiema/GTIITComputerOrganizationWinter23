@@ -39,21 +39,21 @@ extern int maximum(const int size, int values[size]);
     Takes one integer `value`
     Returns `TRUE` iff `value` is even.
 */
-extern boolean isEven(const int value);
+extern boolean is_even(const int value);
 
 /*
     Returns whether a number is odd or not
     Takes one integer `value`
     Returns `TRUE` iff `value` is odd.
 */
-extern boolean isOdd(const int value);
+extern boolean is_odd(const int value);
 
 /*
     Returns whether a number is prime or not
     Takes one integer `value`
     Returns `TRUE` iff `value` is prime (`value` is only divisible by `1` and `value`).
 */
-extern boolean isPrime(const unsigned int value);
+extern boolean is_prime(const unsigned int value);
 
 /*
     Returns the nth fibonacci number
@@ -84,7 +84,7 @@ extern boolean equals(const char * string1, const char * string2);
     Returns `i` such that `string[i] == e` and there is no `j < i` where `string[j] == e`,
     returns `-1` if the character does not appear in the string
 */
-extern int indexOf(const char * string, const char e);
+extern int index_of(const char * string, const char e);
 
 /*
     Returns the last index where a character appears in a string.
@@ -92,7 +92,7 @@ extern int indexOf(const char * string, const char e);
     Returns `i` such that `string[i] == e` and there is no `j > i` where `string[j] == e`,
     returns `-1` if the character does not appear in the string
 */
-extern int lastIndexOf(const char * string, const char e);
+extern int last_index_of(const char * string, const char e);
 
 /*
     Returns a modified version of a string where every uppercase letter has been transformed into lowercase.
@@ -100,7 +100,7 @@ extern int lastIndexOf(const char * string, const char e);
     Returns a new `NULL-terminated` string (`string2`) equal to `string` except for every uppercase letter
     in `string` will be in lowercase in `string2`
 */
-extern char * toLowerCase(const char * string);
+extern char * to_lower_case(const char * string);
 
 /*
     Returns a modified version of a string where every lowercase letter has been transformed into uppercase.
@@ -108,7 +108,7 @@ extern char * toLowerCase(const char * string);
     Returns a new `NULL-terminated` string (`string2`) equal to `string` except for every lowercase letter
     in `string` will be in uppercase in `string2`
 */
-extern char * toUpperCase(const char * string);
+extern char * to_upper_case(const char * string);
 
 /*
     Returns a `NULL-Terminated` substring string of another `NULL-Terminated` string.

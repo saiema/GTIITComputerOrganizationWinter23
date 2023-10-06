@@ -5,7 +5,7 @@
 #define SIZE 42
 #define MAX_VALUE 15
 
-void printArray(const int size, const int values[size]);
+void print_array(const int size, const int values[size]);
 
 void main(int argc, char ** argv) {
     printf("max(1,2): %d\n", max(1,2));
@@ -19,15 +19,15 @@ void main(int argc, char ** argv) {
     for (int i = 0; i < SIZE; i++) {
         values[i] = rand() % MAX_VALUE;
     }
-    printArray(SIZE, values);
+    print_array(SIZE, values);
     printf("maximum is: %d\n", maximum(SIZE, values));
 
     for (int i = 0; i < SIZE; i++) {
         printf("isEven(%1$d): %2$d\t|\tisOdd(%1$d): %3$d\t|\tisPrime(%1$d): %4$d\n",
             values[i],
-            isEven(values[i]),
-            isOdd(values[i]),
-            isPrime(values[i])
+            is_even(values[i]),
+            is_odd(values[i]),
+            is_prime(values[i])
         );
     }
     
@@ -40,10 +40,10 @@ void main(int argc, char ** argv) {
     const char * hello_ = "Hello! ";
     const char * h3llo = "H3llo!";
     printf("length(%s): %d\n", helloThere, length(helloThere));
-    printf("toLowerCase(%s): %s\n", helloThere, toLowerCase(helloThere));
-    printf("toUpperCase(%s): %s\n", helloThere, toUpperCase(helloThere));
-    printf("indexOf(%s, %c): %d\n", helloThere, 'e', indexOf(helloThere, 'e'));
-    printf("lastIndexOf(%s, %c): %d\n", helloThere, 'e', lastIndexOf(helloThere, 'e'));
+    printf("toLowerCase(%s): %s\n", helloThere, to_lower_case(helloThere));
+    printf("toUpperCase(%s): %s\n", helloThere, to_upper_case(helloThere));
+    printf("indexOf(%s, %c): %d\n", helloThere, 'e', index_of(helloThere, 'e'));
+    printf("lastIndexOf(%s, %c): %d\n", helloThere, 'e', last_index_of(helloThere, 'e'));
     printf("equals(%s, %s): %d\n", hello, hello, equals(hello, hello));
     printf("equals(%s, %s): %d\n", hello_, hello, equals(hello_, hello));
     printf("equals(%s, %s): %d\n", hello, hello_, equals(hello, hello_));
@@ -86,7 +86,7 @@ void main(int argc, char ** argv) {
     }
 }
 
-void printArray(const int size, const int values[size]) {
+void print_array(const int size, const int values[size]) {
     printf("[");
     for (int i = 0; i < size; i++) {
         printf("%d", values[i]);

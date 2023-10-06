@@ -13,7 +13,7 @@ int maximum(const int size, int values[size]) {
     //TODO
 }
 
-boolean isEven(const int value) {
+boolean is_even(const int value) {
     if (value & 1) {
         return FALSE;
     } else {
@@ -21,11 +21,11 @@ boolean isEven(const int value) {
     }
 }
 
-boolean isOdd(const int value) {
+boolean is_odd(const int value) {
     //TODO
 }
 
-boolean isPrime(const unsigned int value) {
+boolean is_prime(const unsigned int value) {
     //TODO
 }
 
