@@ -23,7 +23,7 @@ void main(int argc, char ** argv) {
     printf("maximum is: %d\n", maximum(SIZE, values));
 
     for (int i = 0; i < SIZE; i++) {
-        printf("isEven(%1$d): %2$d\t|\tisOdd(%1$d): %3$d\t|\tisPrime(%1$d): %4$d\n",
+        printf("is_even(%1$d): %2$d\t|\tis_odd(%1$d): %3$d\t|\tis_prime(%1$d): %4$d\n",
             values[i],
             is_even(values[i]),
             is_odd(values[i]),
@@ -35,15 +35,15 @@ void main(int argc, char ** argv) {
     for (int ith = 1; ith < 20; ith++) {
         printf("%dth fibonacci: %d\n", ith, fibonnaci(ith));
     }
-    const char * helloThere = "Hello there! - General Kenobi!";
+    const char * hello_there = "Hello there! - General Kenobi!";
     const char * hello = "Hello!";
     const char * hello_ = "Hello! ";
     const char * h3llo = "H3llo!";
-    printf("length(%s): %d\n", helloThere, length(helloThere));
-    printf("toLowerCase(%s): %s\n", helloThere, to_lower_case(helloThere));
-    printf("toUpperCase(%s): %s\n", helloThere, to_upper_case(helloThere));
-    printf("indexOf(%s, %c): %d\n", helloThere, 'e', index_of(helloThere, 'e'));
-    printf("lastIndexOf(%s, %c): %d\n", helloThere, 'e', last_index_of(helloThere, 'e'));
+    printf("length(%s): %d\n", hello_there, length(hello_there));
+    printf("to_lower_case(%s): %s\n", hello_there, to_lower_case(hello_there));
+    printf("to_upper_case(%s): %s\n", hello_there, to_upper_case(hello_there));
+    printf("index_of(%s, %c): %d\n", hello_there, 'e', index_of(hello_there, 'e'));
+    printf("last_index_of(%s, %c): %d\n", hello_there, 'e', last_index_of(hello_there, 'e'));
     printf("equals(%s, %s): %d\n", hello, hello, equals(hello, hello));
     printf("equals(%s, %s): %d\n", hello_, hello, equals(hello_, hello));
     printf("equals(%s, %s): %d\n", hello, hello_, equals(hello, hello_));
@@ -52,16 +52,16 @@ void main(int argc, char ** argv) {
     printf("equals(%s, %s): %d\n", h3llo, hello_, equals(h3llo, hello_));
     printf("equals(%s, %s): %d\n", hello_, h3llo, equals(hello_, h3llo));
     printf("substring(%s, %d, %d): %s\n",
-        helloThere, 0, length(helloThere),
-        substring(helloThere, 0, length(helloThere))
+        hello_there, 0, length(hello_there),
+        substring(hello_there, 0, length(hello_there))
     );
     printf("substring(%s, %d, %d): %s\n",
-        helloThere, 15, 30,
-        substring(helloThere, 15, 30)
+        hello_there, 15, 30,
+        substring(hello_there, 15, 30)
     );
     printf("substring(%s, %d, %d): %s\n",
-        helloThere, 15, 22,
-        substring(helloThere, 15, 22)
+        hello_there, 15, 22,
+        substring(hello_there, 15, 22)
     );
     const boolean booleans[2] = {TRUE, FALSE};
     for (int i = 0; i < 2; i++) {
