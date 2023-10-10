@@ -1,4 +1,4 @@
-compile: compile-boolean compile-math compile-strings main.c
+compile: boolean.o strings.o math.o main.c
 	gcc -o tutorial1 main.c boolean.o math.o strings.o
 
 .PHONY: clean
@@ -6,11 +6,11 @@ clean:
 	find . -name '*.o' -delete
 	find . -name 'tutorial1' -delete
 
-compile-boolean: boolean.c standard.h
+boolean.o: boolean.c standard.h
 	gcc -c -o boolean.o boolean.c
 
-compile-math: math.c standard.h
+math.o: math.c standard.h
 	gcc -c -o math.o math.c
 
-compile-strings: strings.c standard.h
+strings.o: strings.c standard.h
 	gcc -c -o strings.o strings.c
