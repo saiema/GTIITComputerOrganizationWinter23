@@ -39,7 +39,7 @@ int s_printf_to_file(int fd, const string const format, const int * const values
 int s_printf(const string const format, const int * const values);
 
 /*
-* This function takes a path to an executable, and a NULL-TERMINATED array of strings to be used
+* This function takes a path to an executable, and a NULL-terminated array of strings to be used
 * as arguments for the executable.
 * This function will wait until the called executable finishes and return their exit code 
 */

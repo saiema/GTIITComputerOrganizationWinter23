@@ -2,8 +2,8 @@
 #include <sstd.h>
 
 int main(void) {
-    static char * args[3] = {"/usr/bin/sleep", "5", 0};
-    int exit_code = s_execute("/usr/bin/sleep", args);
+    static char * args[4] = {"This", " Should ", "Work", 0};
+    int exit_code = s_execute("/usr/bin/echo", args);
 
     s_printf("Last program terminated with exit code: %d\n", &exit_code);
 
