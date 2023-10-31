@@ -1,4 +1,3 @@
-#include <stdio.h>
 
 typedef unsigned char boolean;
 
