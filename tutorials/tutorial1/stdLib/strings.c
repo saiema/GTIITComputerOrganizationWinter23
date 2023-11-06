@@ -1,32 +1,43 @@
 #include "standard.h"
 #include <stdlib.h>
 
-unsigned int length(const char * string) {
+natural length(const string const str) {
+    if (str == NULL) {
+        return 0;
+    }
     int count = 0;
-    while(string[count] != 0) {
+    while(str[count] != 0) {
         count++;
     }
     return count;
 }
 
-boolean equals(const char * string1, const char * string2) {
+boolean equals(const string const str1, const string const str2) {
+    if (str1 == NULL) {
+        return str2 == NULL;
+    } else if (str2 == NULL) {
+        return FALSE;
+    }
     int i = 0;
-    while (string1[i] != 0) {
-        if (string2[i] == 0) {
+    while (str1[i] != 0) {
+        if (str2[i] == 0) {
             return FALSE;
-        } else if (string1[i] != string2[i]) {
+        } else if (str1[i] != str2[i]) {
             return FALSE;
         }
         i++;
     }
-    return string2[i] == 0;
+    return str2[i] == 0;
 }
 
-int index_of(const char * string, const char e) {
+int index_of(const string const str, const char e) {
+    if (str == NULL) {
+        return -1;
+    }
     int idx = 0;
     boolean found = FALSE;
-    while (string[idx] != 0) {
-        if (string[idx] == e) {
+    while (str[idx] != 0) {
+        if (str[idx] == e) {
             return idx;
         }
         idx++;
@@ -34,11 +45,14 @@ int index_of(const char * string, const char e) {
     return found?idx:-1;
 }
 
-int last_index_of(const char * string, const char e) {
+int last_index_of(const string const str, const char e) {
+    if (str == NULL) {
+        return -1;
+    }
     int idx = 0;
     int resIdx = -1;
-    while(string[idx] != 0) {
-        if (string[idx] == e) {
+    while(str[idx] != 0) {
+        if (str[idx] == e) {
            resIdx = idx; 
         }
         idx++;
@@ -54,53 +68,62 @@ int last_index_of(const char * string, const char e) {
 
 #define CASE_DIFF 32
 
-char * to_lower_case(const char * string) {
-    int strLength = length(string);
-    char * lCaseString = (char *) malloc(strLength + 1);
+static char shift_in_range(const char c, natural range_start, natural range_end, const int shift) {
+    if ((range_start <= c) && (c <= range_end)) {
+        return c + shift;
+    } else {
+        return c;
+    }
+}
+
+string to_lower_case(const string const str) {
+    if (str == NULL) {
+        return NULL;
+    }
+    int strLength = length(str);
+    string lCaseString = (string) malloc(strLength + 1);
     if (lCaseString == 0) {
         return 0;
     }
     lCaseString[strLength] = 0;
     for (int i = 0; i < strLength; i++) {
-        char currChar = string[i];
-        if ((currChar >= UPPER_CASE_MIN) && (currChar <= UPPER_CASE_MAX)) {
-            currChar = currChar + CASE_DIFF;
-        }
-        lCaseString[i] = currChar;
+        lCaseString[i] = shift_in_range(str[i], UPPER_CASE_MIN, UPPER_CASE_MAX, CASE_DIFF);
     }
     return lCaseString;
 }
 
-char * to_upper_case(const char * string) {
-    unsigned int strLength = length(string);
-    char * uCaseString = (char *) malloc(strLength + 1);
+string to_upper_case(const string const str) {
+    if (str == NULL) {
+        return NULL;
+    }
+    natural strLength = length(str);
+    string uCaseString = (string) malloc(strLength + 1);
     if (uCaseString == 0) {
         return 0;
     }
     uCaseString[strLength] = 0;
     for (int i = 0; i < strLength; i++) {
-        char currChar = string[i];
-        if ((currChar >= LOWER_CASE_MIN) && (currChar <= LOWER_CASE_MAX)) {
-            currChar = currChar - CASE_DIFF;
-        }
-        uCaseString[i] = currChar;
+        uCaseString[i] = shift_in_range(str[i], LOWER_CASE_MIN, LOWER_CASE_MAX, -CASE_DIFF);
     }
     return uCaseString;
 }
 
-char * substring(const char * string, unsigned int from, unsigned int to) {
-    unsigned int strLength = length(string);
-    if (from < 0 || from >= strLength || to > strLength || from > to) {
-        return 0;
+string substring(const string const str, natural from, natural to) {
+    if (str == NULL) {
+        return NULL;
     }
-    unsigned int sliceLength = to - from;
-    char * slice = (char *) malloc(sliceLength + 1);
+    natural strLength = length(str);
+    if (from < 0 || from >= strLength || to > strLength || from > to) {
+        return NULL;
+    }
+    natural sliceLength = to - from;
+    string slice = (string) malloc(sliceLength + 1);
     if (slice == 0) {
-        return 0;
+        return NULL;
     }
     slice[sliceLength] = 0;
     for (int i = 0; i < sliceLength; i++) {
-        char origChar = string[from + i];
+        char origChar = str[from + i];
         slice[i] = origChar;
     }
     return slice;

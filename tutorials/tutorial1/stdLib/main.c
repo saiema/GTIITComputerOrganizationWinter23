@@ -35,10 +35,10 @@ void main(int argc, char ** argv) {
     for (int ith = 1; ith < 20; ith++) {
         printf("%dth fibonacci: %d\n", ith, fibonnaci(ith));
     }
-    const char * hello_there = "Hello there! - General Kenobi!";
-    const char * hello = "Hello!";
-    const char * hello_ = "Hello! ";
-    const char * h3llo = "H3llo!";
+    const string const hello_there = "Hello there! - General Kenobi!";
+    const string const hello = "Hello!";
+    const string const hello_ = "Hello! ";
+    const string const h3llo = "H3llo!";
     printf("length(%s): %d\n", hello_there, length(hello_there));
     printf("to_lower_case(%s): %s\n", hello_there, to_lower_case(hello_there));
     printf("to_upper_case(%s): %s\n", hello_there, to_upper_case(hello_there));

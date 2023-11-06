@@ -33,7 +33,7 @@ boolean is_odd(const int value) {
     }
 }
 
-boolean is_prime(const unsigned int value) {
+boolean is_prime(const natural value) {
     int divisors = 1;
     for (int divisor = 2; divisor <= value; divisor++) {
         if (value % divisor == 0) {
@@ -43,9 +43,9 @@ boolean is_prime(const unsigned int value) {
     return divisors == 2;
 }
 
-unsigned int fibonnaci(const unsigned int nth) {
-    int fib1 = 0;
-    int fib2 = 1;
+natural fibonnaci(const natural nth) {
+    natural fib1 = 0;
+    natural fib2 = 1;
     for (int i = 1; i < nth; i++) {
         int aux = fib2;
         fib2 = fib1 + fib2;

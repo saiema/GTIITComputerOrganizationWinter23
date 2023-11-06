@@ -8,6 +8,16 @@
 typedef unsigned char boolean;
 
 /*
+    An alias to `unsigned int` to better represent a `natural`
+*/
+typedef unsigned int natural;
+
+/*
+    An alias to `char *` to better represent a `string`
+*/
+typedef char * string;
+
+/*
     A `boolean` constant representing a `True` value
 */
 #define TRUE 1
@@ -53,14 +63,14 @@ extern boolean is_odd(const int value);
     Takes one integer `value`
     Returns `TRUE` iff `value` is prime (`value` is only divisible by `1` and `value`).
 */
-extern boolean is_prime(const unsigned int value);
+extern boolean is_prime(const natural value);
 
 /*
     Returns the nth fibonacci number
     Takes one integer `nth`
     Returns the `nth` number in the fibonacci sequence.
 */
-extern unsigned int fibonnaci(const unsigned int nth);
+extern natural fibonnaci(const natural nth);
 
 // String
 
@@ -68,7 +78,7 @@ extern unsigned int fibonnaci(const unsigned int nth);
     Returns the length of a `NULL-Terminated` string
     Takes a pointer to the first character of a string, the string must be `NULL-Terminated`
 */
-extern unsigned int length(const char * string);
+extern natural length(const string const str);
 
 /*
     Returns whether two `NULL-Terminated` strings are equal or not
@@ -76,7 +86,7 @@ extern unsigned int length(const char * string);
     Returns `True` iff both strings are of the same length and
     for every `i in [0..length(string1)] | string1[i] == string2[i]`
 */
-extern boolean equals(const char * string1, const char * string2);
+extern boolean equals(const string const str1, const string const str2);
 
 /*
     Returns the first index where a character appears in a string.
@@ -84,7 +94,7 @@ extern boolean equals(const char * string1, const char * string2);
     Returns `i` such that `string[i] == e` and there is no `j < i` where `string[j] == e`,
     returns `-1` if the character does not appear in the string
 */
-extern int index_of(const char * string, const char e);
+extern int index_of(const string const str, const char e);
 
 /*
     Returns the last index where a character appears in a string.
@@ -92,7 +102,7 @@ extern int index_of(const char * string, const char e);
     Returns `i` such that `string[i] == e` and there is no `j > i` where `string[j] == e`,
     returns `-1` if the character does not appear in the string
 */
-extern int last_index_of(const char * string, const char e);
+extern int last_index_of(const string const str, const char e);
 
 /*
     Returns a modified version of a string where every uppercase letter has been transformed into lowercase.
@@ -100,7 +110,7 @@ extern int last_index_of(const char * string, const char e);
     Returns a new `NULL-terminated` string (`string2`) equal to `string` except for every uppercase letter
     in `string` will be in lowercase in `string2`
 */
-extern char * to_lower_case(const char * string);
+extern string to_lower_case(const string const str);
 
 /*
     Returns a modified version of a string where every lowercase letter has been transformed into uppercase.
@@ -108,14 +118,14 @@ extern char * to_lower_case(const char * string);
     Returns a new `NULL-terminated` string (`string2`) equal to `string` except for every lowercase letter
     in `string` will be in uppercase in `string2`
 */
-extern char * to_upper_case(const char * string);
+extern string to_upper_case(const string const str);
 
 /*
-    Returns a `NULL-Terminated` substring string of another `NULL-Terminated` string.
-    Takes a `NULL-Terminated` string (`string`), and two unsigned ints (`from`, and `to`)
+    Returns a `NULL-Terminated` substring str of another `NULL-Terminated` string.
+    Takes a `NULL-Terminated` string (`string`), and two naturals (`from`, and `to`)
     Returns a slice of `string` going from index `from` (inclusive) to index `to` (exclusive),
 */
-extern char * substring(const char * string, unsigned int from, unsigned int to);
+extern string substring(const string const str, natural from, natural to);
 
 // Boolean
 
