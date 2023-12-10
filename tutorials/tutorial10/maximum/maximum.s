@@ -4,6 +4,8 @@
 .global maximum
 .type maximum function
 
+.text
+
 # maximum takes an integer size (greater than 0), and an array of integers
 # of size elements.
 # It returns the maximum element in the array
