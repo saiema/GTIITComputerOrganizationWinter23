@@ -3,10 +3,10 @@
 
 .text
 
-.EQU A, 10
-.EQU B, 11
+.EQU A, 10 # equivalent to #define A 10 in C
+.EQU B, 0 # equivalent to #define B 11 in C
 
-# AND A B === FALSE if (NOT A) OR (NOT B)
+# AND A B === NOT ((NOT A) OR (NOT B))
 # argument registers: rdi, rsi, rdx, rcx, r8, r9
 
 and:
