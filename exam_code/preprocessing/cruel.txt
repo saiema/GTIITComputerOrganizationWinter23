@@ -1,0 +1,4 @@
+#ifdef CRUEL
+cruel
+#endif
+world
