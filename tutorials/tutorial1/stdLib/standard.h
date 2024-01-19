@@ -1,4 +1,4 @@
-#if !defined(STANDARD_DEF)
+#ifndef STANDARD_DEF
 #define STANDARD_DEF
 #include <limits.h>
 
