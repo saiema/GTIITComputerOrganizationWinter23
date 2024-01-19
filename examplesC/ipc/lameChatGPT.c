@@ -51,7 +51,7 @@ void startResponding(FILE * in, FILE * out) {
     char input[SIZE];
     unsigned char stop = 0;
     while (!stop) {
-        if (read(fileno(in), input, SIZE) == 0) {
+        if (fgets(in, input, SIZE) == 0) {
             continue;
         }
         if (strstr(input, "I'm ") != NULL) {
@@ -72,6 +72,9 @@ void startResponding(FILE * in, FILE * out) {
         } else if (strstr(input, "Goodbye") != NULL) {
             fputs("Goodbye, shutting down...\n", out);
             stop = 1;
+        } else {
+            fputs("I didn't understand that\n", out);
+            fputs(input, out);
         }
     }
 }
